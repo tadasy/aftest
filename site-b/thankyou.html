@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>これはサイトBのコンバージョンページです</title>
+    <script>
+        (function () {
+            const iframe = document.getElementById('site-a-cv');
+            iframe.onload = function (e) {
+                console.log(e);
+            }
+        })();
+    </script>
+</head>
+<body>
+<h1>[サイトB]これはコンバージョンページです</h1>
+<p>iframeに <strong>"コンバージョン情報"</strong> という文字列を渡します。</p>
+<iframe id="site-a-cv" src="//localhost:8080/iframe_cv.html" height="300" width="50%"></iframe>
+</body>
+</html>

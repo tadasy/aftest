@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>これはサイトAのランディングページです</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script>
+        (function () {
+            const now = new Date();
+            Cookies.set('lp-start-time', now.toLocaleString());
+        })();
+    </script>
+</head>
+<body>
+<h1>[サイトA]これはランディングページです</h1>
+cookieに現在日時をやいてます。<br>
+<script>document.write(Cookies.get('lp-start-time'))</script>
+<br>
+<a href="//localhost:8081/thankyou.html">サイトBへ</a>
+</body>
+</html>

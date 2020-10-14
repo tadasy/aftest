@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>これはサイトAのiframeのコンバージョンページです</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script>
+        (function () {
+            window.addEventListener('message', function(event) {
+                if (event.origin != 'http://localhost:8081') return;
+                document.getElementById('conversion-data').innerText = event.data;
+            });
+        })();
+    </script>
+</head>
+<body>
+<h1>[サイトA]これはiframeのコンバージョンページです</h1>
+LPで焼いたcookie: <script>document.write(Cookies.get('lp-start-time'))</script>
+<br>
+<div id="conversion-data"></div>
+</body>
+</html>
