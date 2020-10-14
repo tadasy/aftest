@@ -7,16 +7,20 @@
     <script>
         (function () {
             window.addEventListener('message', function(event) {
+                // 送信元ドメインを確認
+                // このhtmlをiframeで読み込むコンバージョンページのドメインをチェックします
                 if (event.origin != 'http://localhost:8081') return;
-                document.getElementById('conversion-data').innerText = event.data;
+                // チェック後、lpで設定されたcookieとコンバージョンページから受け取ったデータを使って、目的の処理をします。
+                document.getElementById('cookie-data').innerText = Cookies.get('lp-start-time');
+                document.getElementById('conversion-data').innerText = JSON.stringify(event.data);
             });
         })();
     </script>
 </head>
 <body>
 <h1>[サイトA]これはiframeのコンバージョンページです</h1>
-LPで焼いたcookie: <script>document.write(Cookies.get('lp-start-time'))</script>
+LPで焼いたcookie: <span id="cookie-data"></span>
 <br>
-<div id="conversion-data"></div>
+コンバージョンページから取得したデータ: <span id="conversion-data"></span>
 </body>
 </html>
